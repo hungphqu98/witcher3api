@@ -15,7 +15,8 @@ class CreatureController extends Controller
      */
     public function index()
     {
-        //
+        // Get creatures
+        return Creature::all();
     }
 
     /**
@@ -26,7 +27,18 @@ class CreatureController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validate
+        $request->validate([
+            'name'=> 'required',
+            'class'=> 'required',
+            'tactics'=> 'required',
+            'susceptibility'=> 'required',
+            'immunity'=> 'required',
+            'quest'=> 'required',
+            'image'=> 'required'
+        ]);
+        // add creature
+        return Creature::create($request->all());
     }
 
     /**
@@ -37,9 +49,14 @@ class CreatureController extends Controller
      */
     public function show(Creature $creature)
     {
-        //
+        // find creature
+        return Creature::find($creature);
     }
-
+    public function getattr($name,$attr)
+    {
+        // find character
+        return $crea = Creature::where($name,'like','%'.$attr.'%')->get();
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -49,7 +66,9 @@ class CreatureController extends Controller
      */
     public function update(Request $request, Creature $creature)
     {
-        //
+        // update creature
+        return $creature->update($request->all());
+        return $creature->update($request->all());
     }
 
     /**
@@ -58,8 +77,9 @@ class CreatureController extends Controller
      * @param  \App\Models\Creature  $creature
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Creature $creature)
+    public function destroy($id)
     {
-        //
+        // delete creature
+        return Creature::find($id)->delete();
     }
 }

@@ -17,6 +17,7 @@ class CharacterController extends Controller
     {
         // Get characters
         return Character::all();
+        
     }
 
     /**

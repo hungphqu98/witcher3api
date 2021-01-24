@@ -15,7 +15,8 @@ class KingdomController extends Controller
      */
     public function index()
     {
-        //
+        // get kingdom
+        return Kingdom::all();
     }
 
     /**
@@ -26,7 +27,15 @@ class KingdomController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // add kingdom
+        $request->validate([
+            'name'=> 'required',
+            'ruler'=> 'required',
+            'flag'=> 'required',
+            'capital'=> 'required'
+        ]);
+        // add character
+        return Kingdom::create($request->all());
     }
 
     /**
@@ -37,7 +46,8 @@ class KingdomController extends Controller
      */
     public function show(Kingdom $kingdom)
     {
-        //
+        // find kingdom
+        return Kingdom::find($kingdom);
     }
 
     /**
@@ -50,6 +60,7 @@ class KingdomController extends Controller
     public function update(Request $request, Kingdom $kingdom)
     {
         //
+        return $kingdom->update($request->all());
     }
 
     /**
@@ -58,8 +69,9 @@ class KingdomController extends Controller
      * @param  \App\Models\Kingdom  $kingdom
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Kingdom $kingdom)
+    public function destroy($id)
     {
         //
+        return Kingdom::find($id)->delete();
     }
 }

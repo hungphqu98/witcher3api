@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Character;
 use App\Http\Controllers\Api\CharacterController;
 use App\Http\Controllers\Api\QuestController;
+use App\Http\Controllers\Api\KingdomController;
+use App\Http\Controllers\Api\CreatureController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +25,10 @@ Route::get('characters/{name}/{attr}','App\Http\Controllers\Api\CharacterControl
 Route::apiResource('quests', QuestController::class);
 Route::get('quests/{name}/{attr}','App\Http\Controllers\Api\QuestController@getattr');
 
+Route::apiResource('kingdom', KingdomController::class);
+
+Route::apiResource('creatures', CreatureController::class);
+Route::get('creatures/{name}/{attr}','App\Http\Controllers\Api\CreatureController@getattr');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

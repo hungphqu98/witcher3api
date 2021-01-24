@@ -76,9 +76,9 @@ class CharacterController extends Controller
      * @param  \App\Models\Character  $character
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Character $character)
+    public function destroy($id)
     {
         // delete character\
-        return Character::destroy($character);
+        return Character::find($id)->delete();
     }
 }

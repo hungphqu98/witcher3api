@@ -15,7 +15,7 @@ class CreateKingdomsTable extends Migration
     {
         Schema::create('kingdoms', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('flag');
             $table->string('capital');
             $table->string('ruler');

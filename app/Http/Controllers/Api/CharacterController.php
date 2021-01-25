@@ -48,10 +48,11 @@ class CharacterController extends Controller
      * @param  \App\Models\Character  $character
      * @return \Illuminate\Http\Response
      */
-    public function show(Character $character)
+    public function show($id)
     {
         // find character
-        return Character::find($character);
+        $char = Character::where('id',$id)->firstOrFail();
+        return json_encode($char);
     }
     public function getattr($name,$attr)
     {

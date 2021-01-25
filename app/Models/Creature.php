@@ -9,6 +9,6 @@ class Creature extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name','class','tactics','susceptibility','immunity','quest'
+        'name','class','tactics','susceptibility','immunity','quest','image','occurences'
     ];
 }

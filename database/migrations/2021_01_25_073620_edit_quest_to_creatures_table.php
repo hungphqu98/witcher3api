@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddImageToCreatureTable extends Migration
+class EditQuestToCreaturesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,7 @@ class AddImageToCreatureTable extends Migration
     {
         Schema::table('creatures', function (Blueprint $table) {
             //
-            $table->string('image');
+            $table->text('quest')->change();
         });
     }
 
@@ -28,7 +28,6 @@ class AddImageToCreatureTable extends Migration
     {
         Schema::table('creatures', function (Blueprint $table) {
             //
-            Schema::dropIfExists('creatures');
         });
     }
 }

@@ -47,15 +47,17 @@ class CreatureController extends Controller
      * @param  \App\Models\Creature  $creature
      * @return \Illuminate\Http\Response
      */
-    public function show(Creature $creature)
+    public function show($id)
     {
         // find creature
-        return Creature::find($creature);
+        $data = Creature::where('id',$id)->get();
+        return view('characters.show',compact('data'));
     }
     public function getattr($name,$attr)
     {
         // find character
-        return $crea = Creature::where($name,'like','%'.$attr.'%')->get();
+        $data = Creature::where($name,'like','%'.$attr.'%')->get();
+        return view('characters.show',compact('data'));
     }
     /**
      * Update the specified resource in storage.

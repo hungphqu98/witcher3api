@@ -46,15 +46,17 @@ class QuestController extends Controller
      * @param  \App\Models\Quest  $quest
      * @return \Illuminate\Http\Response
      */
-    public function show(Quest $quest)
+    public function show($id)
     {
         // get a quest
-        return Quest::find($quest);
+        $data = Quest::where($id,'id')->get();;
+        return view('characters.show',compact('data'));
     }
     public function getattr($name,$attr)
     {
         // find quest
-        return $quest = Quest::where($name,'like','%'.$attr.'%')->get();
+        $data = Quest::where($name,'like','%'.$attr.'%')->get();
+        return view('characters.show',compact('data'));
     }
     /**
      * Update the specified resource in storage.

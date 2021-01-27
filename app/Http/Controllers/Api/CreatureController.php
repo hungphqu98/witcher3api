@@ -50,14 +50,12 @@ class CreatureController extends Controller
     public function show($id)
     {
         // find creature
-        $data = Creature::where('id',$id)->get();
-        return view('characters.show',compact('data'));
+        return $data = Creature::where('id',$id)->get();
     }
     public function getattr($name,$attr)
     {
         // find character
-        $data = Creature::where($name,'like','%'.$attr.'%')->get();
-        return view('characters.show',compact('data'));
+        return $data = Creature::where($name,'like','%'.$attr.'%')->get();
     }
     /**
      * Update the specified resource in storage.
@@ -69,7 +67,6 @@ class CreatureController extends Controller
     public function update(Request $request, Creature $creature)
     {
         // update creature
-        return $creature->update($request->all());
         return $creature->update($request->all());
     }
 

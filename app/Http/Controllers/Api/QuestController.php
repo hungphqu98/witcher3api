@@ -49,14 +49,12 @@ class QuestController extends Controller
     public function show($id)
     {
         // get a quest
-        $data = Quest::where($id,'id')->get();;
-        return view('characters.show',compact('data'));
+        return $data = Quest::where('id',$id)->get();;
     }
     public function getattr($name,$attr)
     {
         // find quest
-        $data = Quest::where($name,'like','%'.$attr.'%')->get();
-        return view('characters.show',compact('data'));
+        return $data = Quest::where($name,'like','%'.$attr.'%')->get();
     }
     /**
      * Update the specified resource in storage.

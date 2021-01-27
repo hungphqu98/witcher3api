@@ -51,14 +51,13 @@ class CharacterController extends Controller
     public function show($id)
     {
         // find character
-        $data = Character::where('id',$id)->get();
-        return view('characters.show',compact('data'));
+        return $data = Character::where('id',$id)->get();
+        
     }
     public function getattr($name,$attr)
     {
         // find character
-        $data = Character::where($name,'like','%'.$attr.'%')->get();
-        return view('characters.show',compact('data'));
+        return $data = Character::where($name,'like','%'.$attr.'%')->get();
     }
     /**
      * Update the specified resource in storage.

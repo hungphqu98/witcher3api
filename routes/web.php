@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/playground', function () {
     return view('playground');
 });
+Route::view('/{path?}', 'app');

@@ -8,7 +8,7 @@ import React, { Component } from 'react'
     import ProjectsList from './ProjectsList'
     import SingleProject from './SingleProject'
     class App extends Component {
-      render () {
+      render () {g
         return (
           <BrowserRouter>
             <div>

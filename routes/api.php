@@ -23,6 +23,7 @@ use App\Http\Controllers\Api\RegisterController;
 Route::apiResource('characters', CharacterController::class);
 Route::get('characters/{name}/{attr}','App\Http\Controllers\Api\CharacterController@getattr');
 
+
 Route::apiResource('quests', QuestController::class);
 Route::get('quests/{name}/{attr}','App\Http\Controllers\Api\QuestController@getattr');
 

@@ -19,7 +19,12 @@ class CharacterController extends Controller
         return Character::all();
         
     }
-
+    public function all()
+    {
+        // Get characters
+        return Character::all();
+        
+    }
     /**
      * Store a newly created resource in storage.
      *
